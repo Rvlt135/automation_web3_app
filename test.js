@@ -1,25 +1,27 @@
-function myInfo(a, b) {
-    let c
-    a = a + b
-    b = a + 1
-    c = a + b
-    return c
+const profile = {
+    name: "",
+    nick: "",
+    age: 0
 }
 
-function info(){}
-console.log(info())
-console.log(myInfo(1, 3))
+const changeProfile = (name, nick, age) => ({
+    name,
+    nick,
+    age
+})
 
-const accountPerson = {
-    name: "Person one",
-    age: 1
+const testName = "Name";
+const testNick = "Nick";
+const testAge = 12;
+
+
+const profileAge = changeProfile(testName, testNick, testAge)
+if (profileAge.age >= 18){
+    console.log(`Access you age: ${profileAge.age}`)
+}
+else {
+    console.log(`Min Age 18 you age:  ${profileAge.age}`)
 }
 
-function upAgePerson(person){
-    result = person.age += 1
-    return "Результат " + result
-}
 
-console.log(accountPerson.age)
-console.log(upAgePerson(accountPerson))
-console.log(accountPerson.age)
+/// console.log(changeProfile(testName, testNick, testAge))
