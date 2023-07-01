@@ -22,25 +22,11 @@ symbol = 'TST'
 baseURI = 'tester.io'
 
 nonce = client_web3.eth.get_transaction_count(account_1_addresses)
+transaction_hash = '0x8fb50faa86f93cb7f877988fd2fe48e885bfe31c59dee1fe2c6ed500670de4f7'
 
-
-transaction_params = {
-    'from': account_1_addresses,
-    'gas': 2000000,  # Укажите желаемый лимит газа (gas limit)
-    'gasPrice': client_web3.to_wei(2, 'gwei'),  # Укажите желаемую цену газа (gas price) в гвей,
-    'nonce': nonce
-}
-
-transaction = contract.functions.deployCollection(name, symbol, baseURI).build_transaction(transaction_params)
-
-signed_transaction = client_web3.eth.account.sign_transaction(transaction, private_key=account_1_private_key)
-
-transaction_hash = client_web3.eth.send_raw_transaction(signed_transaction.rawTransaction)
-
-transaction_receipt = client_web3.eth.wait_for_transaction_receipt(transaction_hash)
 
 get_transaction_receipt = client_web3.eth.get_transaction_receipt(transaction_hash)
-if transaction_receipt['status'] == 0x0:
+if get_transaction_receipt['status'] == 0x0:
     print("Транзакция не выполнена успешно")
-    gas_used = transaction_receipt['gasUsed']
+    gas_used = get_transaction_receipt['gasUsed']
     print("Количество использованного газа:", gas_used)
