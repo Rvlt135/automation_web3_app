@@ -1,0 +1,22 @@
+version: '3.5'
+
+services:
+  web:
+    restart: always
+    container_name: nft-collection-deployer-frontend
+    image: 6dc329e13626
+    networks:
+      - web3
+
+  backend:
+    image: 2c05e8dcd16e
+    container_name: nft-collection-deployer-backend
+    restart: always
+    networks:
+      - web3
+    depends_on:
+      - web
+
+networks:
+  web3:
+    driver: bridge
