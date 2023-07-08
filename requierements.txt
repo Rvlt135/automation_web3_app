@@ -1,1 +1,4 @@
 web3
+pytest
+requests
+allure-pytest
