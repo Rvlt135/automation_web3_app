@@ -8,7 +8,7 @@ from data.config import (
     PRIVATE_TEST_KEY,
     URL_TESTNET_POLYGON
 )
-
+# from data.test_data import transaction_deploy_dict
 
 class w3Client:
     """Main client for work blockchain net"""
@@ -65,4 +65,28 @@ class w3Polygon(w3Client):
         nonce = self.w3_client.eth.get_transaction_count(ACCOUNT_ADDRESSES)
         return nonce
 
+    def transaction_deploy_collection(self, collection_name: str,
+                                      symbol: str,
+                                      baseUri: str,
+                                      test_data_transaction: dict):
+        contract = self.w3_client.eth.contract(APP_CONTRACT_ADDRESSES, abi=ABI_NFT_CONTRACT_TEST)
+
+        # Создание транзакции
+        transaction_data_for_deploy_collection = contract.functions.deployCollection(collection_name, symbol,
+                                                                                     baseUri).build_transaction(
+            test_data_transaction)
+
+        # Подпись и отправка транзакции
+        signed_txn = self.w3_client.eth.account.sign_transaction(transaction_data_for_deploy_collection,
+                                                         private_key=PRIVATE_TEST_KEY)
+        tx_hash = self.w3_client.eth.send_raw_transaction(signed_txn.rawTransaction)
+
+        # Ожидание подтверждения транзакции
+        tx_receipt = self.w3_client.eth.wait_for_transaction_receipt(tx_hash)
+
+        # Проверка статуса транзакции
+        if tx_receipt['status']:
+            print("Транзакция успешно выполнена.")
+        else:
+            print("Ошибка при выполнении транзакции.")
 

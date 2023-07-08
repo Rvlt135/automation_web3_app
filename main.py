@@ -10,8 +10,6 @@ from blockchain_clients.w3_client import w3Polygon
 
 w3 = w3Polygon()
 client = w3.w3_client
-nonce = client.eth.get_transaction_count(ACCOUNT_ADDRESSES)
-account_addresses = client.eth.account.from_key(private_key=PRIVATE_TEST_KEY).address
 
 name = "tester"
 symb = "symbol"
