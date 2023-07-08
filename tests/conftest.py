@@ -1,8 +1,13 @@
 import pytest
-from framework.api_func import ApiFunc
+from framework.api_client import ApiFunctions
 
 
 @pytest.fixture
 def api_client():
-    api_client = ApiFunc()
+    api_client = ApiFunctions()
     return api_client
+
+
+@pytest.fixture
+def w3_client():
+    pass
