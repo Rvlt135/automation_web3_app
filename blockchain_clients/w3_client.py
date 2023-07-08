@@ -25,20 +25,27 @@ class w3Client:
 
 
 class w3Polygon(w3Client):
+    _instance = None
+
+    def __new__(cls):
+        if not cls._instance:
+            cls._instance = super().__new__(cls)
+        return cls._instance
 
     def __init__(self):
-        super().__init__(url=URL_TESTNET_POLYGON,
-                         contract=APP_CONTRACT_ADDRESSES,
-                         contract_abi=ABI_NFT_CONTRACT_TEST,
-                         account=ACCOUNT_ADDRESSES,
-                         private_key=PRIVATE_TEST_KEY)
+        if not hasattr(self, 'w3_client'):
+            super().__init__(url=URL_TESTNET_POLYGON,
+                             contract=APP_CONTRACT_ADDRESSES,
+                             contract_abi=ABI_NFT_CONTRACT_TEST,
+                             account=ACCOUNT_ADDRESSES,
+                             private_key=PRIVATE_TEST_KEY)
 
-        self.w3_client = Web3(Web3.HTTPProvider(self.url))
-        self.w3_client.middleware_onion.inject(geth_poa_middleware, layer=0)
-        if self.w3_client.is_connected():
-            print("Connect is True")
-        else:
-            print("Connect is False")
+            self.w3_client = Web3(Web3.HTTPProvider(self.url))
+            self.w3_client.middleware_onion.inject(geth_poa_middleware, layer=0)
+            if self.w3_client.is_connected():
+                print("Connect is True")
+            else:
+                print("Connect is False")
 
     def init_contract(self):
         app_contract_addresses = APP_CONTRACT_ADDRESSES
