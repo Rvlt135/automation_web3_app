@@ -11,6 +11,7 @@ from data.config import (
 
 
 class w3Client:
+    """Main client for work blockchain net"""
     def __init__(self, url: str,
                  contract: str,
                  contract_abi: str,
@@ -25,6 +26,7 @@ class w3Client:
 
 
 class w3Polygon(w3Client):
+    """client for word Polygon net"""
     _instance = None
 
     def __new__(cls):
@@ -53,10 +55,13 @@ class w3Polygon(w3Client):
         return self.w3_client.eth.contract(app_contract_addresses, abi=abi_contract)
 
     def get_account_addresses(self):
+        """return: account addresses client"""
+
         account_addresses = self.w3_client.eth.account.from_key(private_key=PRIVATE_TEST_KEY).address
         return account_addresses
 
     def get_nonce_account(self):
+        """return: nonce account transaction"""
         nonce = self.w3_client.eth.get_transaction_count(ACCOUNT_ADDRESSES)
         return nonce
 
