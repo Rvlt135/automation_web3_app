@@ -19,14 +19,14 @@ contract = client_web3.eth.contract(contract_address, abi=contract_abi)
 # parameters for deployCollection
 name = 'tester'
 symbol = 'TST'
-baseURI = 'tester.io'
+baseURI = 'test.io'
 
 nonce = client_web3.eth.get_transaction_count(account_1_addresses)
 
 
 transaction_params = {
     'from': account_1_addresses,
-    'gas': 2000000,  # Укажите желаемый лимит газа (gas limit)
+    'gas': 2000005,  # Укажите желаемый лимит газа (gas limit)
     'gasPrice': client_web3.to_wei(2, 'gwei'),  # Укажите желаемую цену газа (gas price) в гвей,
     'nonce': nonce
 }
@@ -44,3 +44,4 @@ if transaction_receipt['status'] == 0x0:
     print("Транзакция не выполнена успешно")
     gas_used = transaction_receipt['gasUsed']
     print("Количество использованного газа:", gas_used)
+
