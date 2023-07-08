@@ -23,15 +23,7 @@ baseURI = 'tester.io'
 block_number = client_web3.eth.block_number
 
 nonce = client_web3.eth.get_transaction_count(account_1_addresses)
-transaction_hash = '0x8fb50faa86f93cb7f877988fd2fe48e885bfe31c59dee1fe2c6ed500670de4f7'
-
-amount_to_wei = 1
-get_transaction_receipt = client_web3.eth.get_transaction_receipt(transaction_hash)
-if get_transaction_receipt['status'] == 0x0:
-    print("Транзакция не выполнена успешно")
-    gas_used = get_transaction_receipt['gasUsed']
-    print("Количество использованного газа:", gas_used)
-    print(get_transaction_receipt['logs'])
+transaction_hash = '0x88e368e2b005e6e114b710839e01c2449e695f9b5bfd35377d17f0d1a59d8d5d'
 
 transaction_params = {
     'from': account_1_addresses,
@@ -40,8 +32,4 @@ transaction_params = {
     'gasPrice': client_web3.eth.gas_price,  # Укажите желаемую цену газа (gas price) в гвей,
     'nonce': nonce
 }
-
-gas_get = client_web3.eth.get_transaction(transaction_hash)
-gas_limit = gas_get['gas']
-print(gas_limit)
 
