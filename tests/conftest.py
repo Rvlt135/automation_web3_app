@@ -1,5 +1,5 @@
 import pytest
-from framework.api_func import ApiFunc
+from framework.api_client import ApiFunc
 
 
 @pytest.fixture

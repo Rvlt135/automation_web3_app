@@ -41,7 +41,8 @@ def transaction_deploy_collection(collection_name: str,
 
     # Создание транзакции
     transaction_data_for_deploy_collection = contract.functions.deployCollection(collection_name, symbol,
-                                                                                 baseUri).build_transaction(build_transaction_dict)
+                                                                                 baseUri).build_transaction(
+        build_transaction_dict)
 
     # Подпись и отправка транзакции
     signed_txn = w3.eth.account.sign_transaction(transaction_data_for_deploy_collection, private_key=PRIVATE_TEST_KEY)
