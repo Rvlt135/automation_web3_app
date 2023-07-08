@@ -23,7 +23,7 @@ baseURI = 'tester.io'
 block_number = client_web3.eth.block_number
 
 nonce = client_web3.eth.get_transaction_count(account_1_addresses)
-transaction_hash = '0x88e368e2b005e6e114b710839e01c2449e695f9b5bfd35377d17f0d1a59d8d5d'
+transaction_hash = '0x8c31f246ed6e998de3d0e845c2e067b9b61167b9f46c62f9f675444169fb1c09'
 
 transaction_params = {
     'from': account_1_addresses,
@@ -33,3 +33,17 @@ transaction_params = {
     'nonce': nonce
 }
 
+
+transaction_info = client_web3.eth.get_transaction(transaction_hash)
+
+# Вывод информации о транзакции
+print(transaction_info)
+
+print("Hash:", transaction_info.hash.hex())
+print("Block Number:", transaction_info.blockNumber)
+print("From:", transaction_info['from'])
+print("To:", transaction_info['to'])
+print("Value:", client_web3.from_wei(transaction_info['value'], 'ether'))
+print("Gas Price:", client_web3.from_wei(transaction_info.gasPrice, 'gwei'), "Gwei")
+print("Gas Limit:", transaction_info['gas'])
+print("Nonce:", transaction_info.nonce)
