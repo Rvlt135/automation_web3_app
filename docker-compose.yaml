@@ -7,6 +7,8 @@ services:
     image: 6dc329e13626
     networks:
       - web3
+    depends_on:
+      - backend
 
   backend:
     image: 2c05e8dcd16e
@@ -14,8 +16,8 @@ services:
     restart: always
     networks:
       - web3
-    depends_on:
-      - web
+    #depends_on:
+    # - web
 
 networks:
   web3:
