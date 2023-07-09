@@ -8,7 +8,7 @@ uri = "tester@test.io"
 
 @allure.feature('API тесты')
 @allure.story('Api проверки созданных коллекций')
-def test_api_create_user(api_client, w3_client_polygon):
+def test_api_nft_deploy_collections(api_client, w3_client_polygon):
     with allure.step('Request on deploy collections NFT'):
         transaction_deploy_dict = {
             'from': w3_client_polygon.get_account_addresses(),
