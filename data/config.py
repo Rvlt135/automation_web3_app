@@ -15,6 +15,7 @@ URL_TESTNET_POLYGON = "https://rpc.ankr.com/polygon_mumbai"
 # Нужно написать readjson функцию
 ABIS_DIR = os.path.join(ROOT_DIR, 'abis')
 ABI_NFT_CONTRACT_FILE_JSON = os.path.join(ABIS_DIR, 'nft_app_abi.json')
+METAMSK_EXTENSION_FILE = os.path.join(ROOT_DIR, 'MetaMask.crx')
 
 APP_CONTRACT_ADDRESSES = "0x54EEDe47850fE932f5466B6fa708bf1176371966"
 

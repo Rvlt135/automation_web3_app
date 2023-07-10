@@ -5,7 +5,7 @@ class ApiClient:
     default_expected_result = 200
 
     def __init__(self):
-        self.url = 'http://172.19.0.3:4000'
+        self.url = 'http://localhost:4000'
 
     def get(self, url):
         # if not expected_result:
@@ -15,7 +15,7 @@ class ApiClient:
         # assert expected_result == result
 
 
-class ApiFunc(ApiClient):
+class ApiFunctions(ApiClient):
     def __init__(self):
         super().__init__()
 
