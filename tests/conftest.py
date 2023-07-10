@@ -42,5 +42,6 @@ def driver():
 def pages(driver):
     """Воркер получает все экраны и работает с ними"""
     page = UIWorker(driver)
+    # url_windows = 'http://127.0.0.1:8080/' для винды с виртуалкой
     page.open_main_page(url='http://localhost:3000/')
     return page

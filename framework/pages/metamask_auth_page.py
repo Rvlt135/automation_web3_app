@@ -6,7 +6,7 @@ import framework.locators.locators_metamask as lc
 
 class MetamaskAuthPage(BasePage):
     def first_page_auth_metamask(self):
-        self.find_and_click(lc.check_box_terms_of_use, 10)
+        self.find_and_click(lc.check_box_terms_of_use)
         self.find_and_click(lc.button_import_an_exist_wallet)
 
     def input_secret_recovery_value(self, secret_recovery_list: list):

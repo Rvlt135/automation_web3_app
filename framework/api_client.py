@@ -22,3 +22,8 @@ class ApiFunctions(ApiClient):
     def get_deploy_collection(self):
         url = f'{self.url}/events'
         return self.get(url)
+
+    def get_deploy_collection_id(self):
+        url = f'{self.url}/events'
+        nft_collection_id = self.get(url)
+        print()

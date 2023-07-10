@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-check_box_terms_of_use = (By.CSS_SELECTOR, '[id="onboarding__terms-checkbox"]')
+check_box_terms_of_use = (By.CSS_SELECTOR, '[data-testid="onboarding-terms-checkbox"]')
 button_import_an_exist_wallet = (By.CSS_SELECTOR, '[data-testid="onboarding-import-wallet"]')
 button_i_agree_auth = (By.CSS_SELECTOR, '[data-testid="metametrics-i-agree"]')
 # field_secret_value = (By.CSS_SELECTOR, '[data-testid="import-srp__srp-word-0"]')
@@ -11,6 +11,12 @@ new_password_repeat_input = (By.CSS_SELECTOR, '[data-testid="create-password-new
 check_box_confirm_password = (By.CSS_SELECTOR, '[data-testid="create-password-terms"]')
 button_confirm_import_wallet = (By.CSS_SELECTOR, '[data-testid="create-password-import"]')
 button_success_auth = (By.CSS_SELECTOR, '[data-testid="onboarding-complete-done"]')
+button_extension_next = (By.CSS_SELECTOR, '[data-testid="pin-extension-next"]')
+button_extension_done = (By.CSS_SELECTOR, '[data-testid="pin-extension-done"]')
+button_try_out = (By.CSS_SELECTOR, '[data-testid="pin-extension-done"]')
+button_try_out_2 = (By.CSS_SELECTOR, '.button.btn--rounded.btn-primary.whats-new-popup__button')
+
+
 secret_recovery_1 = (By.CSS_SELECTOR, '[data-testid="import-srp__srp-word-0"]')
 secret_recovery_2 = (By.CSS_SELECTOR, '[data-testid="import-srp__srp-word-1"]')
 
