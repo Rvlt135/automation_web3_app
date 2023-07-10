@@ -16,12 +16,13 @@ URL_TESTNET_POLYGON = "https://rpc.ankr.com/polygon_mumbai"
 ABIS_DIR = os.path.join(ROOT_DIR, 'abis')
 ABI_NFT_CONTRACT_FILE_JSON = os.path.join(ABIS_DIR, 'nft_app_abi.json')
 METAMSK_EXTENSION_FILE = os.path.join(ROOT_DIR, 'MetaMask.crx')
+TYPE_SECRET_PHRASE_LIST = ['seek', 'series', 'fossil', 'useless', 'song', 'dose', 'issue', 'habit', 'bamboo', 'shoulder', 'wrestle', 'trip']
 
 APP_CONTRACT_ADDRESSES = "0x54EEDe47850fE932f5466B6fa708bf1176371966"
 
-ACCOUNT_ADDRESSES = '0xDF0D85Ba488cFBc36dd9e68ba956999a42F15879'
+ACCOUNT_ADDRESSES = ''
 
-PRIVATE_TEST_KEY = 'ebc9c7c1536422bd042cbacf4384e78fe335e6fd67c5a2dfc33658257c363a53'
+PRIVATE_TEST_KEY = ''
 
 ABI_NFT_CONTRACT_TEST = """[
     {
