@@ -10,8 +10,6 @@ from data.config import (
 )
 
 
-# from data.test_data import transaction_deploy_dict
-
 class w3Client:
     """Main client for work blockchain net"""
 
@@ -88,9 +86,9 @@ class w3Polygon(w3Client):
 
         # Проверка статуса транзакции
         if tx_receipt['status']:
-            print("Транзакция успешно выполнена.")
+            print("Transaction deploy smart-contract success")
         else:
-            print("Ошибка при выполнении транзакции.")
+            print("Transaction Error")
 
     def transaction_mint_nft(self, collection_id: str,
                              addresses_account_mint: str,
@@ -114,6 +112,6 @@ class w3Polygon(w3Client):
 
         # Проверка статуса транзакции
         if tx_receipt['status']:
-            print("Транзакция на отправку NFT успешно выполнена.")
+            print("Transaction send NFT collection success")
         else:
-            print("Ошибка при выполнении транзакции на отправку NFT ")
+            print("Transaction NFT collection ERROR")

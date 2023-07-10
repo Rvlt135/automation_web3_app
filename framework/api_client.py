@@ -8,11 +8,8 @@ class ApiClient:
         self.url = 'http://127.0.0.1:4000'
 
     def get(self, url):
-        # if not expected_result:
-        #    expected_result = self.default_expected_result
         session = requests.Session()
         return session.get(url).json()
-        # assert expected_result == result
 
 
 class ApiFunctions(ApiClient):
