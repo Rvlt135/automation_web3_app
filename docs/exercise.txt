@@ -22,13 +22,3 @@
 Полезные ссылки
 https://www.alchemy.com/nft-api
 https://www.quicknode.com/docs/ethereum/eth_getCode
-
-1. Пишу взаимодействие с контрактом deployCollection()
-2. Выполняю запрос get на проверку коллекций
-
-Я правильно понимаю, что после создания коллекции мы должны проверить, что поля из формы соответствуют нозваниям из запроса /evnets? 
-Или мне нужно проверить с помощью web3 фреймворка(например) что значения полей из блокчейн сети соответствуют, значениям из поля ответа events?
-Или достаточно сделать действия с клиентом(фронт) приложения(selenium-a) и после уже проверить что значения введенные пользователем, соответствуют значениям из ответа /events(backend)?
-
-curl http://172.19.0.3:4000/events
-[{"collection":"0x06B900bb1222F28A3991E20113EAE71385D620c3","name":"newcollection","symbol":"symb","eventName":"CollectionCreated"},{"collection":"0x06B900bb1222F28A3991E20113EAE71385D620c3","recipient":"0xDF0D85Ba488cFBc36dd9e68ba956999a42F15879","tokenId":4644395326373888,"tokenURI":"tester.com4644395326373888","eventName":"TokenMinted"}]
