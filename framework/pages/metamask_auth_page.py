@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 
 from framework.pages.base_page import BasePage
 import framework.locators.locators_metamask as lc
+from data.config import PASSWORD_METAMASK
 
 
 class MetamaskInstall(BasePage):
@@ -18,8 +19,8 @@ class MetamaskInstall(BasePage):
         self.find_and_click(lc.button_confirm_import)
 
     def input_password_and_confirm(self):
-        self.find_and_input('TestMetamask1234', lc.new_password_input)
-        self.find_and_input('TestMetamask1234', lc.new_password_repeat_input)
+        self.find_and_input(PASSWORD_METAMASK, lc.new_password_input)
+        self.find_and_input(PASSWORD_METAMASK, lc.new_password_repeat_input)
         self.find_and_click(lc.check_box_confirm_password)
         self.find_and_click(lc.button_confirm_import_wallet)
         self.find_and_click(lc.button_success_auth)
@@ -36,6 +37,10 @@ class MetamaskInstall(BasePage):
         #        break  # Переключились на первое всплывающее окно
 
         self.find_and_click(lc.pop_up_button_try_out)
+
+    def settings_test_network(self):
+        self.driver.get('chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/home.html#settings')
+
 
     def switch_window_metamask(self):
         self.switch_window(1)
