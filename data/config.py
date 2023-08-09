@@ -11,14 +11,20 @@ if getattr(sys, 'frozen', False):
 else:
     ROOT_DIR = Path(__file__).parent.parent.absolute()
 
-URL_TESTNET_POLYGON = "https://rpc.ankr.com/polygon_mumbai"
+RPC_URL_TESTNET_POLYGON = "https://rpc.ankr.com/polygon_mumbai"
+POLYGON_MUMBAI_TEST_NAME = 'Mumbai Testnet'
+POLYGON_MUMBAI_TEST_CHAIN_ID = 80001
+
 # Нужно написать readjson функцию
 ABIS_DIR = os.path.join(ROOT_DIR, 'abis')
 ABI_NFT_CONTRACT_FILE_JSON = os.path.join(ABIS_DIR, 'nft_app_abi.json')
 METAMSK_EXTENSION_FILE = os.path.join(ROOT_DIR, 'MetaMask.crx')
-TYPE_SECRET_PHRASE_LIST = ['seek', 'series', 'fossil', 'useless', 'song', 'dose', 'issue', 'habit', 'bamboo', 'shoulder', 'wrestle', 'trip']
+TYPE_SECRET_PHRASE_LIST = []
+TYPE_SECRET_PHRASE_STR = ''
 
-APP_CONTRACT_ADDRESSES = "0x54EEDe47850fE932f5466B6fa708bf1176371966"
+PASSWORD_METAMASK = ''
+
+APP_CONTRACT_ADDRESSES = ""
 
 ACCOUNT_ADDRESSES = ''
 

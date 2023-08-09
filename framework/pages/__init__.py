@@ -1,8 +1,8 @@
 from framework.pages.base_page import BasePage
-from framework.pages.metamask_auth_page import MetamaskAuthPage
+from framework.pages.metamask_auth_page import MetamaskInstall
 
 
-class UIWorker(MetamaskAuthPage, BasePage):
+class UIWorker(MetamaskInstall, BasePage):
     """Класс для работы со всеми экранами приложения"""
     # 'http://localhost:3000/'
     def open_app(self, url='http://localhost:3000/'):

@@ -2,10 +2,9 @@ import pytest
 from framework.api_client import ApiFunctions
 from blockchain_clients.w3_client import w3Polygon
 from selenium import webdriver
-from data.config import METAMSK_EXTENSION_FILE
-from selenium.webdriver.chrome.options import Options
-
+from data.config import (METAMSK_EXTENSION_FILE)
 from framework.pages import UIWorker
+from auto_metamask import core as core_metamask
 
 
 @pytest.fixture
@@ -31,6 +30,8 @@ def driver():
     EXTENSION_PATH = METAMSK_EXTENSION_FILE
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_extension(EXTENSION_PATH)
+    chrome_options.add_experimental_option('excludeSwitches', ['enable-automation'])
+    chrome_options.add_experimental_option('useAutomationExtension', False)
     driver = webdriver.Chrome(chrome_options)
     driver.maximize_window()
     driver.implicitly_wait(4)
@@ -38,10 +39,10 @@ def driver():
     driver.quit()
 
 
-@pytest.fixture()
+@pytest.fixture
 def pages(driver):
     """Воркер получает все экраны и работает с ними"""
     page = UIWorker(driver)
-    # url_windows = 'http://127.0.0.1:8080/' для винды с виртуалкой
-    page.open_main_page(url='http://localhost:3000/')
+    url_windows = 'http://127.0.0.1:8080/'  # для винды с виртуалкой
+    page.open_main_page(url=url_windows)
     return page

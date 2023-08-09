@@ -6,7 +6,7 @@ from data.config import (
     APP_CONTRACT_ADDRESSES,
     ACCOUNT_ADDRESSES,
     PRIVATE_TEST_KEY,
-    URL_TESTNET_POLYGON
+    RPC_URL_TESTNET_POLYGON
 )
 
 
@@ -36,7 +36,7 @@ class w3Polygon(w3Client):
 
     def __init__(self):
         if not hasattr(self, 'w3_client'):
-            super().__init__(url=URL_TESTNET_POLYGON,
+            super().__init__(url=RPC_URL_TESTNET_POLYGON,
                              contract=APP_CONTRACT_ADDRESSES,
                              contract_abi=ABI_NFT_CONTRACT_TEST,
                              account=ACCOUNT_ADDRESSES,

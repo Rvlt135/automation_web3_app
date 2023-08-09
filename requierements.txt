@@ -3,3 +3,4 @@ pytest
 requests
 allure-pytest
 selenium
+auto-metamask
