@@ -38,9 +38,40 @@ class MetamaskInstall(BasePage):
 
         self.find_and_click(lc.pop_up_button_try_out)
 
-    def settings_test_network(self):
-        self.driver.get('chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/home.html#settings')
-
-
     def switch_window_metamask(self):
         self.switch_window(1)
+
+
+class MetaMaskPages(BasePage):
+
+    def add_settings_test_network(self, setting_test_net_list):
+        self.driver.get('chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/home.html#settings/networks/add-network')
+        for index, value in enumerate(setting_test_net_list, start=1):
+            locator = (
+                By.CSS_SELECTOR, f'.networks-tab__add-network-form-body > div:nth-child({index}) > label > input')
+            self.find_and_input(value, locator, time=7)
+        self.find_and_click(lc.button_save_test_net)
+        self.switch_window(1)
+        self.find_and_click(lc.change_test_net_button)
+        self.driver.close()
+        self.switch_window(0)
+        self.driver.refresh()
+        time.sleep(10)
+
+    def work_to_metamask_extension(self):
+        js_script_click_button_next_metamask = """
+        var connectButton = document.querySelector('[data-testid="page-container-footer-next"]');
+        if (connectButton) {
+        connectButton.click();
+        }
+        """
+
+        # Получить список всех окон
+        window_handles = self.get_all_window_handles()
+
+        # Вывести количество окон в консоль
+        print("Количество доступных окон:", len(window_handles))
+        self.driver.execute_script(js_script_click_button_next_metamask)
+        self.switch_window(0)
+        self.driver.refresh()
+        time.sleep(7)

@@ -29,6 +29,9 @@ class BasePage:
         switch_headless = self.driver.window_handles
         self.driver.switch_to.window(switch_headless[win_number])
 
+    def get_all_window_handles(self):
+        return self.driver.window_handles
+
     def find_and_click_pop_up(self, locator, time=5):
         WebDriverWait(self.driver, time).until(
             EC.presence_of_element_located(locator))
